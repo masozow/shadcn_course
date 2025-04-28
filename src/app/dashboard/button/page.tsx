@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { ChevronRight, Loader2, MailOpen } from "lucide-react";
 
 const Page = () => {
   return (
@@ -13,6 +14,16 @@ const Page = () => {
       <Button onClick={() => console.log("Hola mundo!")}>Click Me</Button>
       <Button variant="success">success</Button>
       <Button capitalize={false}>capitalize false</Button>
+      <Button variant="outline" size="icon">
+        <ChevronRight />
+      </Button>
+      <Button>
+        <MailOpen /> Login with Email
+      </Button>
+      <Button disabled>
+        <Loader2 className="animate-spin" />
+        Please wait
+      </Button>
     </div>
   );
 };
