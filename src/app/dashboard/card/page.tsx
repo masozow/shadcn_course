@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -19,7 +20,7 @@ const Page = () => {
           <p>Card Content</p>
         </CardContent>
         <CardFooter>
-          <p>Card Footer</p>
+          <Button variant="ghost">info</Button>
         </CardFooter>
       </Card>
     </div>
