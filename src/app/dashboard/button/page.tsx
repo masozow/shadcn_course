@@ -11,7 +11,8 @@ const Page = () => {
       <Button variant="secondary">secondary</Button>
       <Button disabled>disabled</Button>
       <Button onClick={() => console.log("Hola mundo!")}>Click Me</Button>
-      <Button variant="success">Success</Button>
+      <Button variant="success">success</Button>
+      <Button capitalize={false}>capitalize false</Button>
     </div>
   );
 };

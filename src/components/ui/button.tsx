@@ -41,17 +41,21 @@ function Button({
   variant,
   size,
   asChild = false,
+  capitalize = true,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    capitalize?: boolean;
   }) {
   const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, className }), {
+        capitalize: capitalize,
+      })}
       {...props}
     />
   );
