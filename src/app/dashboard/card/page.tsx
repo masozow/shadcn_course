@@ -11,18 +11,21 @@ import {
 const Page = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-        <CardFooter>
-          <Button variant="ghost">info</Button>
-        </CardFooter>
-      </Card>
+      {"123456789".split("").map((item) => (
+        <Card key={item}>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+            <CardDescription>Card Description</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+          <CardFooter>
+            <Button variant="ghost">info</Button>
+            <Button>More</Button>
+          </CardFooter>
+        </Card>
+      ))}
     </div>
   );
 };
