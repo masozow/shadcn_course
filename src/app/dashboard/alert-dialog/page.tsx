@@ -17,9 +17,7 @@ const Page = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   return (
     <>
-      <AlertDialog
-        open={dialogOpen}
-        onOpenChange={(value) => console.log({ value })}>
+      <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <AlertDialogTrigger asChild>
           <Button variant="outline">Show Dialog</Button>
         </AlertDialogTrigger>
