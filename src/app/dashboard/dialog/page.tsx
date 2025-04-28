@@ -15,8 +15,12 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useState } from "react";
 
 const Page = () => {
+  const [textInput, setTextInput] = useState(
+    "https://ui.shadcn.com/docs/installation"
+  );
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -36,19 +40,15 @@ const Page = () => {
             </Label>
             <Input
               id="link"
-              defaultValue="https://ui.shadcn.com/docs/installation"
-              readOnly
+              defaultValue={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
             />
           </div>
           <Button
             type="submit"
             size="sm"
             className="px-3"
-            onClick={() =>
-              navigator.clipboard.writeText(
-                "https://ui.shadcn.com/docs/installation"
-              )
-            }>
+            onClick={() => navigator.clipboard.writeText(textInput)}>
             <span className="sr-only">Copy</span>
             <Copy />
           </Button>
