@@ -1,3 +1,4 @@
+"use client";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,7 +14,7 @@ import { Button } from "@/components/ui/button";
 
 const Page = () => {
   return (
-    <AlertDialog>
+    <AlertDialog onOpenChange={(value)=>console.log({value})}>
       <AlertDialogTrigger asChild>
         <Button variant="outline">Show Dialog</Button>
       </AlertDialogTrigger>
@@ -26,8 +27,12 @@ const Page = () => {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogCancel onClick={() => console.log("Cancel")}>
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction onClick={() => console.log("Continue")}>
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
