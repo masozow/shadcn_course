@@ -17,12 +17,14 @@ const Page = () => {
         selected={date}
         onSelect={setDate}
         className="rounded-md border"
+        disabled={(date) => date.getDay() === 0 || date.getDay() === 6}
       />
       <Calendar
         mode="single"
         selected={date}
         onSelect={setDate}
         className="rounded-md border"
+        disabled={(date) => date > new Date()}
       />
       <Calendar
         mode="single"
