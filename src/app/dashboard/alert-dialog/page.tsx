@@ -16,7 +16,7 @@ import { useState } from "react";
 const Page = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   return (
-    <>
+    <div className="grid grid-cols-2 gap-4">
       <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <AlertDialogTrigger asChild>
           <Button variant="outline">Show Dialog</Button>
@@ -39,8 +39,8 @@ const Page = () => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-      <Button onClick={() => setDialogOpen(true)}>Open dialog</Button>
-    </>
+      <Button onClick={() => setDialogOpen(true)}>Open dialog manually</Button>
+    </div>
   );
 };
 
