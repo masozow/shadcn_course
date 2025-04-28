@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Page = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const [multipleDates, setMultipleDates] = useState<Date[] | undefined>([]);
 
   const smallDate = date?.toLocaleDateString("es-ES", {
     weekday: "short",
@@ -27,14 +28,17 @@ const Page = () => {
         disabled={(date) => date > new Date()}
       />
       <Calendar
-        mode="single"
-        selected={date}
-        onSelect={setDate}
+        mode="multiple"
+        selected={multipleDates}
+        onSelect={setMultipleDates}
         className="rounded-md border"
       />
       <div>
         <h1 className="text-3xl">Information</h1>
         <p>{smallDate}</p>
+        <p>
+          {multipleDates?.map((date) => date.toLocaleDateString()).join(", ")}
+        </p>
       </div>
     </div>
   );
