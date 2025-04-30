@@ -3,6 +3,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
+import { ModeToggle } from "../components/ModeToggle";
 
 const links = [
   { name: "accordion", href: "accordion" },
@@ -93,6 +94,7 @@ export default function DashboardLayout({
               </a>
             </div>
             <div className="flex items-center">
+              <ModeToggle />
               {/* User Avatar */}
               <Avatar>
                 <AvatarImage
