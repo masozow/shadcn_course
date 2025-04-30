@@ -41,32 +41,32 @@ const Page = () => {
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Suggestions">
-            <CommandItem>
+            <CommandItem onSelect={() => console.log("Calendar")}>
               <Calendar />
               <span>Calendar</span>
             </CommandItem>
-            <CommandItem>
+            <CommandItem onSelect={() => console.log("Search Emoji")}>
               <Smile />
               <span>Search Emoji</span>
             </CommandItem>
-            <CommandItem disabled>
+            <CommandItem onSelect={() => console.log("Calculator")} disabled>
               <Calculator />
               <span>Calculator</span>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />
           <CommandGroup heading="Settings">
-            <CommandItem>
+            <CommandItem onSelect={() => console.log("Profile")}>
               <User />
               <span>Profile</span>
               <CommandShortcut>⌘P</CommandShortcut>
             </CommandItem>
-            <CommandItem>
+            <CommandItem onSelect={() => console.log("Billing")}>
               <CreditCard />
               <span>Billing</span>
               <CommandShortcut>⌘B</CommandShortcut>
             </CommandItem>
-            <CommandItem>
+            <CommandItem onSelect={() => console.log("Settings")}>
               <Settings />
               <span>Settings</span>
               <CommandShortcut>⌘S</CommandShortcut>
