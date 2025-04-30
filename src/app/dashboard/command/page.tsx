@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Calculator,
   Calendar,
@@ -8,7 +10,7 @@ import {
 } from "lucide-react";
 
 import {
-  Command,
+  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
@@ -17,11 +19,13 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
+import { useState } from "react";
 
 const Page = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div>
-      <Command className="rounded-lg border shadow-md md:min-w-[450px]">
+      <CommandDialog open={open} onOpenChange={(value) => setOpen(value)}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
@@ -58,7 +62,7 @@ const Page = () => {
             </CommandItem>
           </CommandGroup>
         </CommandList>
-      </Command>
+      </CommandDialog>
     </div>
   );
 };
