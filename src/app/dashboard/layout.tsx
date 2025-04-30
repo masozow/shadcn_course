@@ -140,7 +140,9 @@ export default function DashboardLayout({
               </a>
             </div>
             <div className="flex items-center">
-              <ModeToggle />
+              <div className="mr-3">
+                <ModeToggle />
+              </div>
               {/* User Avatar */}
               <Avatar>
                 <AvatarImage
