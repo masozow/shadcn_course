@@ -15,7 +15,8 @@ const Page = () => {
     <div className="w-full flex justify-center">
       <Carousel
         className="w-full max-w-xs"
-        plugins={[Autoplay({ delay: 1000 })]}
+        autoplay={5000}
+        // plugins={[Autoplay({ delay: 1000 })]}
         opts={{ /*dragFree: true,*/ loop: true }}>
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
