@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -38,7 +40,7 @@ const Page = () => {
               </MenubarSubContent>
             </MenubarSub>
             <MenubarSeparator />
-            <MenubarItem>
+            <MenubarItem onClick={() => print()}>
               Print... <MenubarShortcut>⌘P</MenubarShortcut>
             </MenubarItem>
           </MenubarContent>
