@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 
+// Example #1
 const frameworks = [
   {
     value: "next.js",
@@ -39,12 +40,46 @@ const frameworks = [
     label: "Astro",
   },
 ];
+
+// Example #2
+type Status = {
+  value: string;
+  label: string;
+};
+
+const statuses: Status[] = [
+  {
+    value: "backlog",
+    label: "Backlog",
+  },
+  {
+    value: "todo",
+    label: "Todo",
+  },
+  {
+    value: "in progress",
+    label: "In Progress",
+  },
+  {
+    value: "done",
+    label: "Done",
+  },
+  {
+    value: "canceled",
+    label: "Canceled",
+  },
+];
 const Page = () => {
+  // Example #1
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
 
+  // Example #2
+  const [open2, setOpen2] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState<Status | null>(null);
+
   return (
-    <div>
+    <div className="grid grid-cols-2 gap-2">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -86,6 +121,43 @@ const Page = () => {
           </Command>
         </PopoverContent>
       </Popover>
+
+      {/* Second example */}
+      <div className="flex items-center space-x-4">
+        <p className="text-sm text-muted-foreground">Status</p>
+        <Popover open={open2} onOpenChange={setOpen2}>
+          <PopoverTrigger asChild>
+            <Button variant="outline" className="w-[150px] justify-start">
+              {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="p-0" side="right" align="start">
+            <Command>
+              <CommandInput placeholder="Change status..." />
+              <CommandList>
+                <CommandEmpty>No results found.</CommandEmpty>
+                <CommandGroup>
+                  {statuses.map((status) => (
+                    <CommandItem
+                      key={status.value}
+                      value={status.value}
+                      onSelect={(value) => {
+                        setSelectedStatus(
+                          statuses.find(
+                            (priority) => priority.value === value
+                          ) || null
+                        );
+                        setOpen(false);
+                      }}>
+                      {status.label}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
     </div>
   );
 };
