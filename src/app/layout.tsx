@@ -37,7 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           {children}
-          <SonnerToaster />
+          <SonnerToaster richColors />
         </ThemeProvider>
       </body>
     </html>
