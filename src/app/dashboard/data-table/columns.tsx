@@ -78,7 +78,7 @@ export const columns: ColumnDef<Payment>[] = [
               onClick={() => {
                 navigator.clipboard.writeText(payment.id);
                 toast("Payment ID copied to clipboard", {
-                  duration: 5000,
+                  duration: 3000,
                   position: "top-right",
                 });
               }}>
