@@ -40,7 +40,10 @@ const Page = () => {
               </MenubarSubContent>
             </MenubarSub>
             <MenubarSeparator />
-            <MenubarItem onClick={() => print()}>
+            <MenubarItem
+              onClick={() => {
+                setTimeout(() => window.print(), 100);
+              }}>
               Print... <MenubarShortcut>⌘P</MenubarShortcut>
             </MenubarItem>
           </MenubarContent>
@@ -106,6 +109,13 @@ const Page = () => {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
+      <h1 className="text-3xl mt-5">Productos</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsum
+        provident sequi doloremque, deserunt dolorem molestiae ex voluptatum
+        asperiores, molestias cum iusto atque aliquam. Ea ducimus quia nam esse
+        ipsa?
+      </p>
     </div>
   );
 };

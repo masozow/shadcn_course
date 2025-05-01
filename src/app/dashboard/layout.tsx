@@ -300,7 +300,7 @@ export default function DashboardLayout({
               </a>
             </div>
           </footer>
-          <p className="text-center text-sm text-gray-500 my-10">
+          <p className="text-center text-sm text-gray-500 my-10 print:hidden">
             &copy; 2019-{new Date().getFullYear()}{" "}
             <a href="#" className="hover:underline" target="_blank">
               Themesberg
