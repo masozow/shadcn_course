@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Progress } from "@/components/ui/progress";
+import { cn } from "@/lib/utils";
 
 const Page = () => {
   const [progress, setProgress] = useState(0);
@@ -22,7 +23,15 @@ const Page = () => {
   }, []);
   return (
     <div>
-      <Progress value={progress} className="w-full" />
+      <Progress
+        value={progress}
+        className="w-full"
+        indicatorColor={cn({
+          "bg-red-500": progress < 50,
+          "bg-yellow-500": progress >= 50 && progress < 80,
+          "bg-green-500": progress >= 80,
+        })}
+      />
     </div>
   );
 };
