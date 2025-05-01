@@ -1,4 +1,6 @@
 import { payments } from "@/data/payments.data";
+import { DataTable } from "./data-table";
+import { columns } from "./columns";
 
 const fetchData = async () => {
   return payments;
@@ -9,9 +11,7 @@ const Page = async () => {
 
   return (
     <div>
-      <pre>
-        <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
+      <DataTable columns={columns} data={data} />
     </div>
   );
 };
