@@ -5,12 +5,22 @@ import { useState } from "react";
 
 const Page = () => {
   const [sliderValue, setSliderValue] = useState(10);
+  const [rangeValue, setRangeValue] = useState([10, 20]);
+
   return (
     <div className="grid grid-cols1 gap-3">
       <span>Slider value: {sliderValue}</span>
       <Slider
         defaultValue={[sliderValue]}
         onValueChange={(value) => setSliderValue(value[0])}
+        min={0}
+        max={100}
+        step={1}
+      />
+      <span>Range value: {rangeValue.join(", ")}</span>
+      <Slider
+        defaultValue={rangeValue}
+        onValueChange={setRangeValue}
         min={0}
         max={100}
         step={1}
