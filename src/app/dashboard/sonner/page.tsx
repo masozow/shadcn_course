@@ -25,6 +25,7 @@ const Page = () => {
         variant="outline"
         onClick={() =>
           toast.success("Event has been created", {
+            className: "bg-green-500 text-white",
             duration: 5000,
             position: "top-right",
             description: `Sunday, December 03, ${new Date().getFullYear()} at 9:00 AM`,
@@ -34,7 +35,7 @@ const Page = () => {
             },
           })
         }>
-        Show Toast
+        Show custom colors
       </Button>
     </div>
   );
