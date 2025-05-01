@@ -18,7 +18,7 @@ const Page = () => {
   return (
     <div className="flex items-center justify-center">
       <ContextMenu>
-        <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border-2 border-dashed text-sm">
+        <ContextMenuTrigger className="flex h-[150px] w-full items-center justify-center rounded-md border-2 border-dashed text-sm">
           Right click here
         </ContextMenuTrigger>
         <ContextMenuContent className="w-64">
