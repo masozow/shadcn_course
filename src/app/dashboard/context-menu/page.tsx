@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -13,8 +15,11 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
+
   return (
     <div className="flex items-center justify-center">
       <ContextMenu>
@@ -22,7 +27,11 @@ const Page = () => {
           Right click here
         </ContextMenuTrigger>
         <ContextMenuContent className="w-64">
-          <ContextMenuItem inset>
+          <ContextMenuItem
+            inset
+            onClick={() => {
+              router.back();
+            }}>
             Back
             <ContextMenuShortcut>⌘[</ContextMenuShortcut>
           </ContextMenuItem>
