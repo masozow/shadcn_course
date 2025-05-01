@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { Payment } from "@/data/payments.data";
 import { ColumnDef } from "@tanstack/react-table";
 
@@ -11,6 +12,22 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "status",
     header: "Status",
+    cell: ({ row }) => {
+      const status = row.getValue("status") as string;
+      const variant =
+        {
+          pending: "outline",
+          processing: "info",
+          success: "success",
+          failed: "destructive",
+        }[status] ?? ("default" as any);
+
+      return (
+        <Badge variant={variant} capitalize>
+          {status}
+        </Badge>
+      );
+    },
   },
 
   {
