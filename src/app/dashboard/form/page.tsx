@@ -43,7 +43,7 @@ const formSchema = z
     dateOfBirth: z.date({
       required_error: "A date of birth is required.",
     }),
-    marketingEmail: z.boolean().default(false),
+    marketingEmail: z.lazy(() => z.boolean()),
   })
   .refine((data) => {
     data.marketingEmail === true,
