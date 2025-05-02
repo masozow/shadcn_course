@@ -126,6 +126,7 @@ export function DataTable<TData, TValue>({
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
+              .filter((column) => column.id !== "actions")
               .map((column) => {
                 return (
                   <DropdownMenuCheckboxItem
