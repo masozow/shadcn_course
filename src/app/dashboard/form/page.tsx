@@ -45,12 +45,9 @@ const formSchema = z
     }),
     marketingEmail: z.lazy(() => z.boolean()),
   })
-  .refine((data) => {
-    data.marketingEmail === true,
-      {
-        message: "You must consent to receive marketing emails",
-        path: ["marketingEmail"],
-      };
+  .refine((data) => data.marketingEmail === true, {
+    message: "You must agree to receive marketing emails.",
+    path: ["marketingEmails"],
   });
 
 const Page = () => {
@@ -200,7 +197,10 @@ const Page = () => {
                 <FormControl>
                   <Switch
                     checked={field.value}
-                    onCheckedChange={field.onChange}
+                    onCheckedChange={(checked) => {
+                      field.onChange(checked);
+                      form.trigger("marketingEmail");
+                    }}
                   />
                 </FormControl>
               </FormItem>
