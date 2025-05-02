@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+
 import {
   Form,
   FormControl,
@@ -31,14 +33,25 @@ const genders = {
   female: "female",
 } as const;
 
-const formSchema = z.object({
-  username: z.string().min(2).max(50),
-  email: z.string().email(),
-  gender: z.enum(["male", "female"], { message: "Please select your gender" }),
-  dateOfBirth: z.date({
-    required_error: "A date of birth is required.",
-  }),
-});
+const formSchema = z
+  .object({
+    username: z.string().min(2).max(50),
+    email: z.string().email(),
+    gender: z.enum(["male", "female"], {
+      message: "Please select your gender",
+    }),
+    dateOfBirth: z.date({
+      required_error: "A date of birth is required.",
+    }),
+    marketingEmail: z.boolean().default(false),
+  })
+  .refine((data) => {
+    data.marketingEmail === true,
+      {
+        message: "You must consent to receive marketing emails",
+        path: ["marketingEmail"],
+      };
+  });
 
 const Page = () => {
   // 1. Define your form.
@@ -61,7 +74,7 @@ const Page = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-2 gap-4">
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Username */}
           <FormField
             control={form.control}
@@ -168,6 +181,28 @@ const Page = () => {
                   Your date of birth is used to calculate your age.
                 </FormDescription>
                 <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Switch */}
+          <FormField
+            control={form.control}
+            name="marketingEmail"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm col-span-1 sm:col-span-2">
+                <div className="space-y-0.5">
+                  <FormLabel>Marketing emails</FormLabel>
+                  <FormDescription>
+                    Receive emails about new products, features, and more.
+                  </FormDescription>
+                </div>
+                <FormControl>
+                  <Switch
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
               </FormItem>
             )}
           />
