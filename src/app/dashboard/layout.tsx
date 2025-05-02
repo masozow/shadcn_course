@@ -48,7 +48,7 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <nav className="bg-white border-b border-gray-200 fixed z-30 w-full dark:bg-slate-900 dark:border-slate-700">
+      <nav className="bg-white border-b border-gray-200 fixed z-30 w-full dark:bg-slate-900 dark:border-slate-800">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start">
@@ -102,11 +102,13 @@ export default function DashboardLayout({
                     </svg>
                   </div> */}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent>
+                <DropdownMenuContent className="dark:bg-slate-900 dark:border-slate-700">
                   <DropdownMenuLabel>Components</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   {links.map((link) => (
-                    <DropdownMenuItem key={link.href}>
+                    <DropdownMenuItem
+                      key={link.href}
+                      className="hover:bg-gray-100 group dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-slate-300 dark:border-slate-900">
                       <Link
                         href={link.href}
                         className="text-base capitalize text-gray-900 font-normal rounded-lg flex items-center hover:bg-gray-100 group dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-slate-300 dark:border-slate-900">
@@ -197,7 +199,7 @@ export default function DashboardLayout({
           id="sidebarBackdrop"></div>
         <div
           id="main-content"
-          className="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64 dark:bg-slate-900 dark:border-slate-700">
+          className="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64 dark:bg-slate-800 dark:border-slate-700">
           <main>
             <div className="pt-6 px-4">
               <div className="w-full min-h-[calc(100vh-230px)]">

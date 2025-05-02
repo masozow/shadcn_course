@@ -77,7 +77,7 @@ const Page = () => {
             control={form.control}
             name="username"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex flex-col justify-start">
                 <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input placeholder="username" {...field} />
@@ -94,7 +94,7 @@ const Page = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex flex-col justify-start">
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input placeholder="E-mail" {...field} />
